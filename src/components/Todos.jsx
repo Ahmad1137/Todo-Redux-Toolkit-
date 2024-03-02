@@ -1,19 +1,19 @@
-import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeTodo, updateTodo } from "../features/todo/todoSlice";
+import {} from "./AddTodo";
 
 function Todos() {
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
-  const inputRef = useRef(null);
-  const handleEdit = (todo) => {
-    if (inputRef.current) {
-      // Update the input field with the todo text
-      inputRef.current.value = todo.text;
-      // Dispatch the updateTodo action to update the todo item
-      dispatch(updateTodo({ id: todo.id, text: todo.text }));
-    }
-  };
+
+  // const handleEdit = (todo) => {
+  //   if (inputRef.current) {
+  //     // Update the input field with the todo text
+  //     inputRef.current.value = todo.text;
+  //     // Dispatch the updateTodo action to update the todo item
+  //     dispatch(updateTodo({ id: todo.id, text: todo.text }));
+  //   }
+  // };
 
   return (
     <>
@@ -27,7 +27,7 @@ function Todos() {
             <div className="text-white">{todo.text}</div>
             <div>
               <button
-                onClick={() => handleEdit(todo, inputRef)}
+                onClick={() => dispatch(updateTodo(todo.text))}
                 // onClick={() => dispatch(updateTodo(todo))}
                 className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
               >

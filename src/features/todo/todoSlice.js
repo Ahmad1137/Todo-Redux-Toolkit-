@@ -26,7 +26,7 @@ export const todoSlice = createSlice({
       state.todos = state.todos.map((todo) =>
         todo.id === updatedTodoId ? { ...todo, text: updatedTodoText } : todo
       );
-      
+      console.log(state.todos);
     },
   },
 });
