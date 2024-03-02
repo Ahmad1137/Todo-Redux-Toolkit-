@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTodo,updateTodo } from "../features/todo/todoSlice";
 
 function AddTodo() {
-  const updatetodo = useSelector((state) => state.todos);
+  const updatetodo = useSelector((state) => state.todos.updateTodo);
   console.log(updatetodo);
   const dispatch = useDispatch();
   const [input, setInput] = useState("");
